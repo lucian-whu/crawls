@@ -3,12 +3,12 @@ import scrapy
 from scrapy import Request
 from scrapy.spiders import CrawlSpider
 
-from plosjournal.items import PlosjournalItem
-
 
 class PlosSpider(CrawlSpider):
     name = 'plos'
     start_urls = ['http://journals.plos.org/plosone/browse/']
+
+    count = 0
 
     def parse_start_url(self, response):
         # call parse_page for start url
@@ -32,14 +32,13 @@ class PlosSpider(CrawlSpider):
                 next_page_url = 'http://journals.plos.org' + next_page[0].strip()
                 yield Request(next_page_url, callback=self.parse_page)
 
-    def parse_item(self,response):
-        print(response.url)
+    def parse_item(self, response):
+        # print(response.url)
         name = response.url.split('.')[-1]
         name = name + '.' + 'html'
         # print(name)
         html = response.text
-        with open("result\\" + name, 'w', encoding='utf-8')as file:
+        self.count += 1
+        with open("G:\\journals\\plosone\\" + name, 'w', encoding='utf-8')as file:
             file.write(html)
-
-
-
+    print(count)
