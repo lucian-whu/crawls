@@ -34,11 +34,9 @@ class PlosSpider(CrawlSpider):
 
     def parse_item(self, response):
         # print(response.url)
-        name = response.url.split('.')[-1]
-        name = name + '.' + 'html'
         # print(name)
         html = response.text
         self.count += 1
-        with open("G:\\journals\\plosone\\" + name, 'w', encoding='utf-8')as file:
+        with open("G:\\journals\\plosone\\" + str(self.count) + '.html', 'w', encoding='utf-8')as file:
             file.write(html)
-    print(count)
+    
