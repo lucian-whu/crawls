@@ -30,10 +30,9 @@ public class CrawlerTest {
         int j = 0;
 
         try {
-            for (i = 501; i <= 600; i++) {
+            for (i = 516; i <= 600; i++) {
 
-                String url = "http://apps.webofknowledge.com/summary.do?product=WOS&parentProduct=WOS&search_mode=GeneralSearch&qid=3&SID=Y1Wa2XcxL7nwsHLiviX&colName=WOS&page="+ i +"&action=changePageSize&pageSize=50";
-
+                String url = "http://apps.webofknowledge.com/summary.do?product=WOS&parentProduct=WOS&search_mode=GeneralSearch&qid=3&SID=Q1PxMA6paORqLRH61r2&colName=WOS&page="+i+"&action=changePageSize&pageSize=50";
                 //爬取检索结果列表页面，然后从列表页面找到名称和连接，进而再爬取找到的文章连接，将其下载下来
                 String content = crawler.crawl(url);
                 Document document = Jsoup.parse(content, BASE_URI);
