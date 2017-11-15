@@ -37,6 +37,6 @@ class PlosSpider(CrawlSpider):
         # print(name)
         html = response.text
         self.count += 1
-        with open("G:\\journals\\plosone\\" + str(self.count) + '.html', 'w', encoding='utf-8')as file:
+        with open("G:\\journals\\plosone1\\" + str(self.count) + '.html', 'w', encoding='utf-8')as file:
             file.write(html)
     

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry	location="D:\data\Code_jar\mysql-connector-java-5.1.36-bin.jar"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass ="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://202.114.70.53:3306/gapswos?useUnicode=true&amp;characterEncoding=utf8" userId="root" password="irlab2013">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="irlab.model" targetProject="D:\data\Code\GAPsCrawlerWOS\src\">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="irlab.mapping" targetProject="D:\data\Code\GAPsCrawlerWOS\src\">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="irlab.dao" targetProject="D:\data\Code\GAPsCrawlerWOS\src\">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="gapsarticle" domainObjectName="GapsArticle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" modelType="flat"></table>
+
+    </context>
+</generatorConfiguration>

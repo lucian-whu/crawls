@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置数据源相关的信息 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED" >
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://202.114.70.53:3306/gapswos" />
+                <property name="username" value="root" />
+                <property name="password" value="irlab2013" />
+                <property name="poolMaximumActiveConnections" value="100"/>
+                <property name="poolMaximumIdleConnections" value="0"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 列出映射文件 -->
+    <mappers>
+        <mapper resource="irlab/mapping/GapsArticleMapper.xml" />
+    </mappers>
+</configuration>
+
