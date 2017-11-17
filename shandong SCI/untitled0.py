@@ -3,6 +3,7 @@
 Created on Mon Jul 24 15:57:56 2017
 
 @author: Administrator
+# 训练验证码
 """
 
 from PIL import Image,ImageFilter,ImageEnhance  
