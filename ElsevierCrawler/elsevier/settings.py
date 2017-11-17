@@ -14,6 +14,12 @@ BOT_NAME = 'elsevier'
 SPIDER_MODULES = ['elsevier.spiders']
 NEWSPIDER_MODULE = 'elsevier.spiders'
 
+SPIDER_MIDDLEWARES = {
+    'scrapy_deltafetch.DeltaFetch': 100,
+}
+DELTAFETCH_ENABLED = True
+
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'elsevier (+http://www.yourdomain.com)'
