@@ -9,6 +9,7 @@ import re
 import string
 import time
 
+
 import pandas as pd
 import pytesseract
 from PIL import Image, ImageFilter, ImageEnhance
@@ -34,12 +35,10 @@ def cnki_ocr(image):
     # print vcode
     vcode = str(vcode.encode("utf8"))
     identify = string.maketrans('', '')
-
     delEStr = string.punctuation + ' '  # ASCII 标点符号和空格
     delCStr = '《》（）&%￥#@！{}【】'
     s = vcode.translate(identify, delEStr)  # 去掉ASCII 标点符号和空格
     ocr_text = s.translate(identify, delCStr)
-
     return ocr_text
 
 
@@ -77,9 +76,8 @@ for i in range(page_num):
     time.sleep(3)
     content = driver.page_source
     soup = BeautifulSoup(content, "lxml")
-
+    code = Selector
     if soup.find(id="CheckCode"):
-
         imgelement = driver.find_element_by_xpath('//img[@src="/kns/checkcode.aspx?t=\'+Math.random()"]')  # 定位验证码
         driver.save_screenshot('F://aa.png')  # 截取当前网页，该网页有我们需要的验证码
         # location = imgelement.location  #获取验证码x,y轴坐标
@@ -122,8 +120,8 @@ for i in range(page_num):
             print article_title
             author = article.find(class_="author_flag").get_text()
             print author
-            journal = article.find(class_="cjfdyxyz").get_text()
-            print journal
+            # journal = article.find(class_="cjfdyxyz").get_text()
+            # print journal
             # year=article.find().get_text()
             cited_num = article.find(class_="KnowledgeNetcont").get_text()
             print(u"被引频次为%s" % cited_num.encode("utf8"))
