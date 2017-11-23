@@ -10,7 +10,7 @@ browser = webdriver.Chrome(executable_path="C:\\Users\\lx201\\Desktop\\GithubPro
                                            "\\chromedriver.exe", chrome_options=chrome_opt)
 
 
-# 将文章的URL写入文件links
+# 将文章的URL写入文件detail_links
 def write_urls(urls):
     with open("detail_links", 'a', encoding='utf-8') as f:
         for url in urls:
